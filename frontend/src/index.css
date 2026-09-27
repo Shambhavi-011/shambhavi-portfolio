@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #21182f;
+  background: #ffffff;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #ddd6fe;
+  color: #3b0764;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 5px;
+}
+
+/* Original reference artwork with a readable left side */
+.hero-shell {
+  background-color: #fafaff;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.75) 35%,
+      rgba(255, 255, 255, 0.12) 65%,
+      rgba(255, 255, 255, 0.02) 100%
+    ),
+    url("/hero-art.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Gentle movement for the code card */
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0) rotate(3deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .floating-code {
+    animation: float-card 7s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-shell {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(255, 255, 255, 0.82) 45%,
+        rgba(255, 255, 255, 0.3) 100%
+      ),
+      url("/hero-art.png");
+
+    background-position: 65% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .floating-code {
+    animation: none;
+  }
+}
